@@ -34,10 +34,6 @@ from src.table import Table
 from src.websocket import Ws
 from src.os import get_os
 
-from src.account_manager.account_manager import AccountManager
-from src.account_manager.account_config import AccountConfig
-from src.account_manager.account_auth import AccountAuth
-
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 os.system(f"title VALORANT rank yoinker v{version}")
@@ -90,9 +86,7 @@ try:
         input("press enter to exit...\n")
         os._exit(1)
 
-    acc_manager = AccountManager(log, AccountConfig, AccountAuth, NUMBERTORANKS)
-
-    ErrorSRC = Error(log, acc_manager)
+    ErrorSRC = Error(log)
 
     Requests.check_version(version, Requests.copy_run_update_script)
     Requests.check_status()
